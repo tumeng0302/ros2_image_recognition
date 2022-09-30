@@ -2,7 +2,6 @@ import cv2
 import torch
 import numpy as np
 import image_recog.label as label
-from PIL import Image
 from torchvision import transforms
 from torchvision import models
 
@@ -17,7 +16,6 @@ net = models.quantization.mobilenet_v2(weights="MobileNet_V2_QuantizedWeights.DE
 net = torch.jit.script(net)
 def main(image):
     image = image[:, :, [2, 1, 0]]
-    permuted = image
     input_tensor = preprocess(image)
     input_batch = input_tensor.unsqueeze(0)
     output = net(input_batch)
