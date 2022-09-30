@@ -28,4 +28,4 @@ def main(image):
     return result
 
 if __name__=="__main__":
-    main("cat.jpg")
+    pass
